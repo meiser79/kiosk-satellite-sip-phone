@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "sip-phone",
+  "name": "SIP Phone",
+  "version": "0.1.0",
+  "apiVersion": 1,
+  "minAndroidSdk": 24,
+  "entryClass": "me.jxl.kiosk.plugins.sip.SipPhonePlugin",
+  "description": "SIP phone with a native full-screen call overlay, answer and decline controls, and G.711 audio.",
+  "author": "Peter Meiser",
+  "license": "Apache-2.0",
+  "capabilities": [
+    "overlay",
+    "entities",
+    "host.control"
+  ],
+  "settings": [
+    {
+      "key": "server",
+      "type": "string",
+      "title": "SIP server",
+      "default": "",
+      "group": "SIP account",
+      "description": "Address of the PBX, e.g. 192.168.1.1 (UDP and IPv4 only)."
+    },
+    {
+      "key": "port",
+      "type": "string",
+      "title": "Server port",
+      "default": "5060",
+      "group": "SIP account",
+      "description": "Number from 1 to 65535."
+    },
+    {
+      "key": "user",
+      "type": "string",
+      "title": "SIP user",
+      "default": "",
+      "group": "SIP account",
+      "description": "SIP username or extension."
+    },
+    {
+      "key": "authUser",
+      "type": "string",
+      "title": "Authentication username",
+      "default": "",
+      "group": "SIP account",
+      "description": "Only set this if registration uses a different username."
+    },
+    {
+      "key": "password",
+      "type": "string",
+      "title": "Password",
+      "default": "",
+      "group": "SIP account",
+      "description": "Stored and displayed as a plain-text setting."
+    },
+    {
+      "key": "localPort",
+      "type": "string",
+      "title": "Local port",
+      "default": "5060",
+      "group": "Advanced",
+      "description": "Number from 1024 to 65535. The plugin receives SIP messages on this port."
+    },
+    {
+      "key": "expires",
+      "type": "select",
+      "title": "Registration expiry (seconds)",
+      "default": "300",
+      "group": "Advanced",
+      "description": "Registration is renewed halfway through the duration confirmed by the server.",
+      "options": [
+        "60",
+        "120",
+        "300",
+        "600",
+        "1800",
+        "3600"
+      ]
+    },
+    {
+      "key": "dnd",
+      "type": "boolean",
+      "title": "Do not disturb",
+      "default": false,
+      "group": "Behavior",
+      "description": "Reject incoming calls as busy."
+    }
+  ],
+  "commands": [
+    {
+      "id": "answer",
+      "title": "Answer call"
+    },
+    {
+      "id": "decline",
+      "title": "Decline call"
+    }
+  ]
+}
